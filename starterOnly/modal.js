@@ -11,7 +11,8 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-const exitBtn = document.querySelectorAll('.close');
+const closeBtn = document.querySelectorAll('.close');
+
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -21,10 +22,23 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-// exit modal event
-exitBtn.forEach((btn) => btn.addEventListener('click', quitModal));
+//close modal event
+closeBtn.forEach((btn) => btn.addEventListener('click', closeModal));
 
 // close the modal form
-function quitModal() {
+function closeModal() {
+  // if click outside the modal-body
+  document.addEventListener("click", e => {
+    if (e.target == document.querySelector(".bground")) {
+      modalbg.style.display = "none";
+    }
+  });
+  // if pressing esc key
+  document.addEventListener("keyup", e => {
+    if (e.key == "Escape" && document.querySelector(".bground")) {
+      modalbg.style.display = "none";
+    }
+  });
   modalbg.style.display = "none";
 }
+
