@@ -54,45 +54,70 @@ submitBtn.forEach((btn) => btn.addEventListener('click', validate));
 
 // when form is submitted
 function validate() {
-const firstName = document.querySelector('#first').value;
-const lastName = document.querySelector('#last').value;
-const email = document.querySelector('#email').value;
-const birthdate = document.querySelector('#birthdate').value;
-const numberParticipation = document.querySelector('#quantity').value;
-const newYork = document.querySelector('#location1').value;
-const sanFrancisco = document.querySelector("#location2").value;
-const seattle =  document.querySelector('#location3').value;
-const chicago = document.querySelector('#location4').value;
-const boston = document.querySelector('#location5').value;
-const portland = document.querySelector('#location6').value;
-const conditions = document.querySelector('#checkbox1').value;
-const nextevents = document.querySelector("#checkbox2").value;
+  const firstName = document.querySelector('#first').value;
+  const lastName = document.querySelector('#last').value;
+  const email = document.querySelector('#email').value;
+  const birthdate = document.querySelector('#birthdate').value;
+  const numberParticipation = document.querySelector('#quantity').value;
+  const newYork = document.querySelector('#location1');
+  const sanFrancisco = document.querySelector("#location2");
+  const seattle =  document.querySelector('#location3');
+  const chicago = document.querySelector('#location4');
+  const boston = document.querySelector('#location5');
+  const portland = document.querySelector('#location6');
+  const conditions = document.querySelector('#checkbox1').checked;
+  const nextevents = document.querySelector("#checkbox2");
 
-//regular expression for email
-const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+  //regular expression for email
+  const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-//Conditions
-// console.log(newYork);
+  //Conditions
+console.log(conditions);
   //The First Name field has a minimum of 2 characters / is not empty.
   if(firstName !== '' && firstName.length >=2) {
     //the last name field has a minimum of 2 characters / is not empty.
     if(lastName !== '' && lastName.length >=2) {
-      
+      //The email address is valid.
       if(email.match(emailReg)) {
-        if(numberParticipation !== '') {
-          if(
-              newYork.checked || 
-              sanFrancisco.checked ||
-              seattle.checked ||
-              chicago.checked ||
-              boston.checked ||
-              portland.checked ||
-            ) {
-            console.log('check')
-          }
+        // birthdate ne doit pas etre vide
+        if(birthdate !== '') {
+          //For the number of contests, a numerical value is entered.
+          if(numberParticipation !== '' || numberParticipation == 0) {
+            //A radio button is selected.
+            if( newYork.checked || sanFrancisco.checked || seattle.checked || chicago.checked || boston.checked || portland.checked  ) {
+                //The general conditions box is checked, the other box is optional / can be left unchecked.
+                console.log(conditions);
+                if(conditions == true) {
+                  console.log('formulaire valide')
+                  alert("Merci ! Votre réservation a été reçue.")
+                  return true;
+                } else {
+                  alert("Vous devez vérifier que vous acceptez les termes et conditions.");
+                  return false;
+                }
+                
+            } else {
+              alert("Vous devez choisir une option.");
+              return false;
+            }
+          } 
+
+        } else {
+          alert("Vous devez entrer votre date de naissance.")
+          return false;
         }
+      } else {
+        alert("votre email n'est pas valide");
+        return false;
       }
+    } else{
+      alert("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
+      return false;
     }
-  }
+  } else {
+    alert("Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
+    return false;
+  } 
+
 }
 
