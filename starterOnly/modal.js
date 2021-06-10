@@ -66,7 +66,7 @@ function validate() {
   const inputLast = document.querySelector("#last");
   const inputEmail = document.querySelector("#email");
   const inputBirthdate = document.querySelector("#birthdate");
-  const inputOption = document.querySelector('#option')
+  
 
   const invalidFirst = document.querySelector(".invalid-first");
   const invalidLast = document.querySelector(".invalid-last");
@@ -110,7 +110,6 @@ function validate() {
         if (birthdate !== "") {
           inputBirthdate.classList.remove("form-invalid");
           inputBirthdate.classList.add("form-valid");
-          // checkBirthdate.classList.add("show-last");
           invalidBirthdate.innerHTML = "";
           //For the number of contests, a numerical value is entered.
           if (numberParticipation !== "" || numberParticipation == 0) {
@@ -124,33 +123,18 @@ function validate() {
               portland.checked
             ) {
               invalidOption.innerHTML ='';
-
-
               //The general conditions box is checked, the other box is optional / can be left unchecked.
-              console.log(conditions);
-              console.log(conditionsChecked)
-              
               if (conditions == 'on' && conditionsChecked == true) {
                 invalidCondition.innerHTML = '';
-                console.log("formulaire valide");
                 validatedForm.innerHTML ='Merci ! Votre réservation a été reçue.';
-                // alert("Merci ! Votre réservation a été reçue.");
-
                 return true;
               } else {
                 invalidCondition.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions.";
-                // alert(
-                //   "Vous devez vérifier que vous acceptez les termes et conditions."
-                // );
                 return false;
-                
               }
 
             } else {
-
-              
               invalidOption.innerHTML = "Vous devez choisir une option.";
-              // alert("Vous devez choisir une option.");
               return false;
             }
           }
@@ -159,7 +143,6 @@ function validate() {
           inputBirthdate.classList.add("form-invalid");
           checkBirthdate.classList.remove("show-last");
           invalidBirthdate.innerHTML = "Vous devez entrer votre date de naissance.";
-          // alert("Vous devez entrer votre date de naissance.");
           return false;
         }
       } else {
@@ -167,7 +150,6 @@ function validate() {
         inputEmail.classList.add("form-invalid");
         checkEmail.classList.remove("show-last");
         invalidEmail.innerHTML = "votre email n'est pas valide";
-        // alert("votre email n'est pas valide");
         return false;
       }
     } else {
@@ -176,7 +158,6 @@ function validate() {
       checkLast.classList.remove("show-last");
       invalidLast.innerHTML =
         "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
-      // alert("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
       return false;
     }
   } else {
@@ -185,7 +166,6 @@ function validate() {
     checkFirst.classList.remove("show-first");
     invalidFirst.innerHTML =
       "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
-
     return false;
   }
 }

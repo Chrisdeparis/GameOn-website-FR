@@ -54,13 +54,13 @@ img {
 }
 
 .topnav a:hover {
-  background-color: #ff0000;
+  background-color: #FE142F;
   color: #ffffff;
   border-radius: 15px;
 }
 
 .topnav a.active {
-  background-color: #ff0000;
+  background-color: #FE142F;
   color: #ffffff;
   border-radius: 15px;
 }
@@ -563,4 +563,28 @@ footer {
 .show-first, .show-last {
   display: block!important;
   
+}
+/* mobile styles */
+@media only screen and (max-width:768px) {
+  div.main-navbar {
+    
+    width: 100%;
+  }
+  h1.hero-headline {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px;
+    font-size: 4rem;
+    line-height: 1em;
+  }
+
+  .hero-content {
+    padding:20px 0;
+  }
+
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 20px;
+}
 }
