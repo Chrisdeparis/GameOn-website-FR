@@ -564,8 +564,25 @@ footer {
   display: block!important;
   
 }
+
+/* Larger screen */
+.hero-headline {
+  font-size: 5.5rem;
+}
+@media only screen and (min-width:769px) and (max-width:1200px) {
+  div.topnav#myTopnav div.main-navbar a.icon {
+    display: none!important;
+  }
+  img.logo{
+  margin-bottom: 30px;
+}
+}
+
 /* mobile styles */
 @media only screen and (max-width:768px) {
+  div.topnav a.icon {
+    display: block;
+  }
   div.main-navbar {
     padding-top:30px;
     width: 100%;
