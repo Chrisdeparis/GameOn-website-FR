@@ -59,8 +59,8 @@ function validate() {
   const boston = document.querySelector("#location5");
   const portland = document.querySelector("#location6");
 
-  const conditions = document.querySelector("#checkbox1");
-  const conditionsValid = document.querySelector('#checkbox1').checked;
+  const conditions = document.querySelector("#checkbox1").value;
+  const conditionsChecked = document.querySelector('#checkbox1').checked;
 
   const inputFirst = document.querySelector("#first");
   const inputLast = document.querySelector("#last");
@@ -127,7 +127,10 @@ function validate() {
 
               //The general conditions box is checked, the other box is optional / can be left unchecked.
               console.log(conditions);
-              if (conditions == true && conditionsValid) {
+              console.log(conditionsChecked)
+              
+              if (conditions == 'on' && conditionsChecked == true) {
+                invalidCondition.innerHTML = '';
                 console.log("formulaire valide");
                 alert("Merci ! Votre réservation a été reçue.");
 
@@ -138,6 +141,7 @@ function validate() {
                 //   "Vous devez vérifier que vous acceptez les termes et conditions."
                 // );
                 return false;
+                
               }
 
             } else {
