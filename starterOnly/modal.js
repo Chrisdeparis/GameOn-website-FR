@@ -45,7 +45,6 @@ function closeModal() {
 //submit form
 submitBtn.forEach((btn) => btn.addEventListener("click", validate));
 
-
 // when form is submitted
 function validate() {
   const firstName = document.querySelector("#first").value;
@@ -64,10 +63,19 @@ function validate() {
 
   const inputFirst = document.querySelector("#first");
   const inputLast = document.querySelector("#last");
+  const inputEmail = document.querySelector("#email");
+  const inputBirthdate = document.querySelector("#birthdate");
+
   const invalidFirst = document.querySelector(".invalid-first");
   const invalidLast = document.querySelector(".invalid-last");
-  const check = document.querySelector(".valid-check");
-  const check2 = document.querySelector("#check2");
+  const invalidEmail = document.querySelector(".invalid-email");
+  const invalidBirthdate = document.querySelector(".invalid-birthdate");
+  const invalidOption = document.querySelector('.invalid-option')
+
+  const checkFirst = document.querySelector(".valid-checkFirst");
+  const checkLast = document.querySelector("#checkLast");
+  const checkEmail = document.querySelector("#checkEmail");
+  const checkBirthdate = document.querySelector('#checkBirthdate');
 
   //regular expression for email
   const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -78,19 +86,26 @@ function validate() {
   if (firstName !== "" && firstName.length >= 2) {
     inputFirst.classList.remove("form-invalid");
     inputFirst.classList.add("form-valid");
-    check.classList.add("show-first");
+    checkFirst.classList.add("show-first");
     invalidFirst.innerHTML = "";
     //the last name field has a minimum of 2 characters / is not empty.
     if (lastName !== "" && lastName.length >= 2) {
       inputLast.classList.remove("form-invalid");
       inputLast.classList.add("form-valid");
-      // check.classList.add("show-last");
-      check2.classList.add('show-last')
+      checkLast.classList.add("show-last");
       invalidLast.innerHTML = "";
       //The email address is valid.
       if (email.match(emailReg)) {
+        inputEmail.classList.remove("form-invalid");
+        inputEmail.classList.add("form-valid");
+        checkEmail.classList.add("show-last");
+        invalidEmail.innerHTML = "";
         // birthdate ne doit pas etre vide
         if (birthdate !== "") {
+          inputBirthdate.classList.remove("form-invalid");
+          inputBirthdate.classList.add("form-valid");
+          // checkBirthdate.classList.add("show-last");
+          invalidBirthdate.innerHTML = "";
           //For the number of contests, a numerical value is entered.
           if (numberParticipation !== "" || numberParticipation == 0) {
             //A radio button is selected.
@@ -102,6 +117,9 @@ function validate() {
               boston.checked ||
               portland.checked
             ) {
+
+
+
               //The general conditions box is checked, the other box is optional / can be left unchecked.
               console.log(conditions);
               if (conditions == true) {
@@ -115,23 +133,35 @@ function validate() {
                 );
                 return false;
               }
+
             } else {
-              alert("Vous devez choisir une option.");
+
+              
+              invalidOption.innerHTML = "Vous devez choisir une option.";
+              // alert("Vous devez choisir une option.");
               return false;
             }
           }
         } else {
-          alert("Vous devez entrer votre date de naissance.");
+          inputBirthdate.classList.remove("form-valid");
+          inputBirthdate.classList.add("form-invalid");
+          checkBirthdate.classList.remove("show-last");
+          invalidBirthdate.innerHTML = "Vous devez entrer votre date de naissance.";
+          // alert("Vous devez entrer votre date de naissance.");
           return false;
         }
       } else {
-        alert("votre email n'est pas valide");
+        inputEmail.classList.remove("form-valid");
+        inputEmail.classList.add("form-invalid");
+        checkEmail.classList.remove("show-last");
+        invalidEmail.innerHTML = "votre email n'est pas valide";
+        // alert("votre email n'est pas valide");
         return false;
       }
     } else {
       inputLast.classList.remove("form-valid");
       inputLast.classList.add("form-invalid");
-      check2.classList.remove("show-last");
+      checkLast.classList.remove("show-last");
       invalidLast.innerHTML =
         "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
       // alert("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
@@ -140,10 +170,10 @@ function validate() {
   } else {
     inputFirst.classList.remove("form-valid");
     inputFirst.classList.add("form-invalid");
-    check.classList.remove("show-first");
+    checkFirst.classList.remove("show-first");
     invalidFirst.innerHTML =
       "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
-    
+
     return false;
   }
 }

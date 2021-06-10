@@ -72,7 +72,7 @@
                   id="first"
                   name="first"
                   required
-                /><img class="valid-check" src="check-solid.svg"  alt=""/><br>
+                /><img class="valid-checkFirst" src="check-solid.svg"  alt=""/><br>
                 <div class="invalid-first">
 
                 </div>
@@ -85,8 +85,8 @@
                   type="text"
                   id="last"
                   name="last"
-                  
-                /><img id="check2" class="valid-check" src="check-solid.svg"  alt=""/><br>
+                  required
+                /><img id="checkLast" class="valid-checkLast" src="check-solid.svg"  alt=""/><br>
                 <div class="invalid-last">
 
                 </div>
@@ -99,7 +99,8 @@
                   type="email"
                   id="email"
                   name="email"
-                /><br>
+                /><img id="checkEmail" class="valid-checkEmail" src="check-solid.svg"  alt=""/><br>
+                <div class="invalid-email"></div>
               </div>
               <div
                 class="formData">
@@ -109,7 +110,8 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
-                /><br>
+                /><img id="checkBirthdate" class="valid-checkBirthdate" src="check-solid.svg"  alt=""/><br>
+                <div class="invalid-birthdate"></div>
               </div>
               <div
                 class="formData">
@@ -119,6 +121,7 @@
               <p class="text-label">Quelles villes ?</p>
               <div
                 class="formData">
+                <div id="option" class="invalid-option"></div>
                 <input
                   class="checkbox-input"
                   type="radio"
