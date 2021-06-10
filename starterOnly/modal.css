@@ -528,3 +528,13 @@ footer {
   }
 }
 
+.valid-feedback {
+  font-size:0.8rem;
+  color:#198754;
+}
+.form-invalid {
+  border:1px solid #ff0000;
+}
+.form-valid {
+  border:1px solid #198754;
+}
