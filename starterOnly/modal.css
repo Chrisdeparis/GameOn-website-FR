@@ -527,7 +527,7 @@ footer {
     opacity: 1;
   }
 }
-
+/* Modifs CSS Christian */
 .valid-feedback {
   font-size:0.8rem;
   color:#279E7A;
@@ -567,7 +567,7 @@ footer {
 /* mobile styles */
 @media only screen and (max-width:768px) {
   div.main-navbar {
-    
+    padding-top:30px;
     width: 100%;
   }
   h1.hero-headline {
@@ -576,6 +576,7 @@ footer {
     padding: 0px;
     font-size: 4rem;
     line-height: 1em;
+    font-weight: bold;
   }
 
   .hero-content {
@@ -585,6 +586,17 @@ footer {
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
-    top: 20px;
-}
+    top: 81px;
+  }
+  .topnav a.icon {
+    margin-top:-81px;
+  }
+  .hero-text {
+    margin-top:20px;
+    width: 76%;
+    font-size: 1.5rem;
+  }
+  .content {
+    margin:0 auto;
+  }
 }
