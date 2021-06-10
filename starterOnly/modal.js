@@ -69,6 +69,9 @@ function validate() {
   const nextevents = document.querySelector("#checkbox2");
 
   const inputFirst = document.querySelector('#first');
+  const inputLast = document.querySelector('#last');
+  const invalidFirst = document.querySelector('.invalid-msg');
+  const check = document.querySelector('.valid-check');
 
   //regular expression for email
   const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -77,6 +80,12 @@ function validate() {
   console.log(conditions);
   //The First Name field has a minimum of 2 characters / is not empty.
   if(firstName !== '' && firstName.length >=2) {
+    inputFirst.classList.remove('form-invalid');
+    inputFirst.classList.add('form-valid');
+    check.classList.add('show');
+
+    console.log(inputFirst);
+    invalidFirst.innerHTML = '';
     //the last name field has a minimum of 2 characters / is not empty.
     if(lastName !== '' && lastName.length >=2) {
       //The email address is valid.
@@ -92,7 +101,7 @@ function validate() {
                 if(conditions == true) {
                   console.log('formulaire valide')
                   alert("Merci ! Votre réservation a été reçue.")
-                  inputFirst.addclass('form-valid');
+                  
                   return true;
                 } else {
                   alert("Vous devez vérifier que vous acceptez les termes et conditions.");
@@ -118,8 +127,12 @@ function validate() {
       return false;
     }
   } else {
-    
-    alert("Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
+    inputFirst.classList.remove('form-valid');
+    inputFirst.classList.add("form-invalid");
+    check.classList.remove('show');
+    console.log(inputFirst);
+    invalidFirst.innerHTML ='Veuillez entrer 2 caractères ou plus pour le champ du prénom.';
+    // alert("Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
     
     return false;
   } 
