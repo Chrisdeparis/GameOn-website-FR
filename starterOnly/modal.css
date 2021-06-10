@@ -554,9 +554,9 @@ footer {
   position: relative;
   float: right;
   display: none;
+
 }
 .show-first, .show-last {
-  display: block;
+  display: block!important;
   
-
 }

@@ -67,6 +67,7 @@ function validate() {
   const invalidFirst = document.querySelector(".invalid-first");
   const invalidLast = document.querySelector(".invalid-last");
   const check = document.querySelector(".valid-check");
+  const check2 = document.querySelector("#check2");
 
   //regular expression for email
   const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -83,7 +84,8 @@ function validate() {
     if (lastName !== "" && lastName.length >= 2) {
       inputLast.classList.remove("form-invalid");
       inputLast.classList.add("form-valid");
-      check.classList.add("show-last");
+      // check.classList.add("show-last");
+      check2.classList.add('show-last')
       invalidLast.innerHTML = "";
       //The email address is valid.
       if (email.match(emailReg)) {
@@ -129,7 +131,7 @@ function validate() {
     } else {
       inputLast.classList.remove("form-valid");
       inputLast.classList.add("form-invalid");
-      check.classList.remove("show-last");
+      check2.classList.remove("show-last");
       invalidLast.innerHTML =
         "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
       // alert("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
