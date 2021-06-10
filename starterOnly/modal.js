@@ -73,7 +73,8 @@ function validate() {
   const invalidEmail = document.querySelector(".invalid-email");
   const invalidBirthdate = document.querySelector(".invalid-birthdate");
   const invalidOption = document.querySelector('.invalid-option');
-  const invalidCondition = document.querySelector('.invalid-condition')
+  const invalidCondition = document.querySelector('.invalid-condition');
+  const validatedForm = document.querySelector('.validated-form');
 
 
   const checkFirst = document.querySelector(".valid-checkFirst");
@@ -105,7 +106,7 @@ function validate() {
         inputEmail.classList.add("form-valid");
         checkEmail.classList.add("show-last");
         invalidEmail.innerHTML = "";
-        // birthdate ne doit pas etre vide
+        // birthdate not empty
         if (birthdate !== "") {
           inputBirthdate.classList.remove("form-invalid");
           inputBirthdate.classList.add("form-valid");
@@ -132,7 +133,8 @@ function validate() {
               if (conditions == 'on' && conditionsChecked == true) {
                 invalidCondition.innerHTML = '';
                 console.log("formulaire valide");
-                alert("Merci ! Votre réservation a été reçue.");
+                validatedForm.innerHTML ='Merci ! Votre réservation a été reçue.';
+                // alert("Merci ! Votre réservation a été reçue.");
 
                 return true;
               } else {

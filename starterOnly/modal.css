@@ -546,6 +546,10 @@ footer {
   border:1px solid #279E7A;
   box-shadow:inset 0 0 2px 2px #279E7A;
 }
+.validated-form {
+  margin:10px 0;
+  color:#279E7A;
+}
 
 .valid-checkFirst, .valid-checkLast, .valid-checkEmail, .valid-checkBirthdate, .valid-checkOption{
   width: 40px;
