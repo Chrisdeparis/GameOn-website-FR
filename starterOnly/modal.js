@@ -58,30 +58,35 @@ function validate() {
   const chicago = document.querySelector("#location4");
   const boston = document.querySelector("#location5");
   const portland = document.querySelector("#location6");
-  const conditions = document.querySelector("#checkbox1").checked;
+
+  const conditions = document.querySelector("#checkbox1");
   const nextevents = document.querySelector("#checkbox2");
 
   const inputFirst = document.querySelector("#first");
   const inputLast = document.querySelector("#last");
   const inputEmail = document.querySelector("#email");
   const inputBirthdate = document.querySelector("#birthdate");
+  const inputOption = document.querySelector('#option')
 
   const invalidFirst = document.querySelector(".invalid-first");
   const invalidLast = document.querySelector(".invalid-last");
   const invalidEmail = document.querySelector(".invalid-email");
   const invalidBirthdate = document.querySelector(".invalid-birthdate");
-  const invalidOption = document.querySelector('.invalid-option')
+  const invalidOption = document.querySelector('.invalid-option');
+  const invalidCondition = document.querySelector('.invalid-condition')
+
 
   const checkFirst = document.querySelector(".valid-checkFirst");
   const checkLast = document.querySelector("#checkLast");
   const checkEmail = document.querySelector("#checkEmail");
   const checkBirthdate = document.querySelector('#checkBirthdate');
+  const checkOption = document.querySelector('#checkOption');
 
   //regular expression for email
   const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
   //Conditions
-  console.log(conditions);
+  
   //The First Name field has a minimum of 2 characters / is not empty.
   if (firstName !== "" && firstName.length >= 2) {
     inputFirst.classList.remove("form-invalid");
@@ -117,20 +122,21 @@ function validate() {
               boston.checked ||
               portland.checked
             ) {
-
+              invalidOption.innerHTML ='';
 
 
               //The general conditions box is checked, the other box is optional / can be left unchecked.
               console.log(conditions);
-              if (conditions == true) {
+              if (conditions == true ) {
                 console.log("formulaire valide");
                 alert("Merci ! Votre réservation a été reçue.");
 
                 return true;
               } else {
-                alert(
-                  "Vous devez vérifier que vous acceptez les termes et conditions."
-                );
+                invalidCondition.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions.";
+                // alert(
+                //   "Vous devez vérifier que vous acceptez les termes et conditions."
+                // );
                 return false;
               }
 

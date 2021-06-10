@@ -532,7 +532,7 @@ footer {
   font-size:0.8rem;
   color:#279E7A;
 }
-.invalid-first, .invalid-last, .invalid-email, .invalid-birthdate, .invalid-option {
+.invalid-first, .invalid-last, .invalid-email, .invalid-birthdate, .invalid-option, .invalid-condition {
   margin-top:5px;
   font-size:0.8rem;
   font-weight:400;
