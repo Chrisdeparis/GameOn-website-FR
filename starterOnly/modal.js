@@ -60,7 +60,7 @@ function validate() {
   const portland = document.querySelector("#location6");
 
   const conditions = document.querySelector("#checkbox1");
-  const nextevents = document.querySelector("#checkbox2");
+  const conditionsValid = document.querySelector('#checkbox1').checked;
 
   const inputFirst = document.querySelector("#first");
   const inputLast = document.querySelector("#last");
@@ -127,7 +127,7 @@ function validate() {
 
               //The general conditions box is checked, the other box is optional / can be left unchecked.
               console.log(conditions);
-              if (conditions == true ) {
+              if (conditions == true && conditionsValid) {
                 console.log("formulaire valide");
                 alert("Merci ! Votre réservation a été reçue.");
 
