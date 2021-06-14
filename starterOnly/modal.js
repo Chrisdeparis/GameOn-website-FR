@@ -45,6 +45,7 @@ function closeModal() {
 //submit form
 submitBtn.forEach((btn) => btn.addEventListener("click", validate));
 
+
 // when form is submitted
 function validate() {
   const firstName = document.querySelector("#first").value;
@@ -126,7 +127,11 @@ function validate() {
               //The general conditions box is checked, the other box is optional / can be left unchecked.
               if (conditions == 'on' && conditionsChecked == true) {
                 invalidCondition.innerHTML = '';
+                
                 validatedForm.innerHTML ='Merci ! Votre réservation a été reçue.';
+                setTimeout(function(){
+                  console.log("Hello World");
+              }, 10000);
                 return true;
               } else {
                 invalidCondition.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions.";
