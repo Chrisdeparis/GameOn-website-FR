@@ -14,13 +14,25 @@ const formData = document.querySelector(".formData");
 const closeBtn = document.querySelector(".close");
 const submitBtn = document.querySelector(".btn-submit");
 
-// launch modal event
+
+
+
+// launch modal 
 modalBtn.onclick = () => {
   modalbg.style.display = "block";
 }
 
+//close modal event
+closeBtn.onclick = () => {
+  console.log('clic')
+  modalbg.style.display = "none";
+}
+// console.log(closeBtn);
 
 
+
+//submit form
+// submitBtn.forEach((btn) => btn.addEventListener("click", validate));
 console.log(submitBtn);
 
 const submit = document.querySelector('#form');
