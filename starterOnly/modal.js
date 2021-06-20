@@ -15,39 +15,21 @@ const closeBtn = document.querySelector(".close");
 const submitBtn = document.querySelector(".btn-submit");
 
 // launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-
-// launch modal form
-function launchModal() {
+modalBtn.onclick = () => {
   modalbg.style.display = "block";
 }
 
-//close modal event
-// closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
-// console.log(closeBtn);
 
-// // close the modal form
-// function closeModal() {
-//   // if click outside the modal-body
-//   document.addEventListener("click", (e) => {
-//     if (e.target == document.querySelector(".bground")) {
-//       modalbg.style.display = "none";
-//     }
-//   });
-//   // if pressing esc key
-//   document.addEventListener("keyup", (e) => {
-//     if (e.key == "Escape" && document.querySelector(".bground")) {
-//       modalbg.style.display = "none";
-//     }
-//   });
-//   return (modalbg.style.display = "none");
-// }
 
-//submit form
-submitBtn.forEach((btn) => btn.addEventListener("click", validate));
 console.log(submitBtn);
 
+const submit = document.querySelector('#form');
+console.log(submit);
+
+
+
 // when form is submitted
+
 function validate() {
   const firstName = document.querySelector("#first").value;
   const lastName = document.querySelector("#last").value;
