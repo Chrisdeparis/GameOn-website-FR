@@ -9,10 +9,10 @@ function editNav() {
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
-const closeBtn = document.querySelectorAll(".close");
-const submitBtn = document.querySelectorAll(".btn-submit");
+const modalBtn = document.querySelector(".modal-btn");
+const formData = document.querySelector(".formData");
+const closeBtn = document.querySelector(".close");
+const submitBtn = document.querySelector(".btn-submit");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -23,28 +23,29 @@ function launchModal() {
 }
 
 //close modal event
-closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
+// closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
+// console.log(closeBtn);
 
-// close the modal form
-function closeModal() {
-  // if click outside the modal-body
-  document.addEventListener("click", (e) => {
-    if (e.target == document.querySelector(".bground")) {
-      modalbg.style.display = "none";
-    }
-  });
-  // if pressing esc key
-  document.addEventListener("keyup", (e) => {
-    if (e.key == "Escape" && document.querySelector(".bground")) {
-      modalbg.style.display = "none";
-    }
-  });
-  return (modalbg.style.display = "none");
-}
+// // close the modal form
+// function closeModal() {
+//   // if click outside the modal-body
+//   document.addEventListener("click", (e) => {
+//     if (e.target == document.querySelector(".bground")) {
+//       modalbg.style.display = "none";
+//     }
+//   });
+//   // if pressing esc key
+//   document.addEventListener("keyup", (e) => {
+//     if (e.key == "Escape" && document.querySelector(".bground")) {
+//       modalbg.style.display = "none";
+//     }
+//   });
+//   return (modalbg.style.display = "none");
+// }
 
 //submit form
 submitBtn.forEach((btn) => btn.addEventListener("click", validate));
-
+console.log(submitBtn);
 
 // when form is submitted
 function validate() {
