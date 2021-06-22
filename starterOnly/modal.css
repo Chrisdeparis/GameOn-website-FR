@@ -580,6 +580,9 @@ footer {
 
 /* mobile styles */
 @media only screen and (max-width:768px) {
+  div.header-logo img.logo {
+    width:60%;
+  }
   main {
     margin: 1px 12px 15px;
   }
