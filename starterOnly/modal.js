@@ -15,8 +15,6 @@ const closeBtn = document.querySelector(".close");
 const submitBtn = document.querySelector(".btn-submit");
 
 
-
-
 // launch modal 
 modalBtn.onclick = () => {
   modalbg.style.display = "block";
@@ -27,7 +25,7 @@ closeBtn.onclick = () => {
   console.log('clic')
   modalbg.style.display = "none";
 }
-// console.log(closeBtn);
+
 
 
 
@@ -35,14 +33,11 @@ closeBtn.onclick = () => {
 // submitBtn.forEach((btn) => btn.addEventListener("click", validate));
 console.log(submitBtn);
 
-const submit = document.querySelector('#form');
-console.log(submit);
+const form = document.querySelector('#form');
+console.log(form);
+const formValidation = document.querySelector('#formValidation');
 
-
-
-// when form is submitted
-
-function validate() {
+form.onsubmit = () => {
   const firstName = document.querySelector("#first").value;
   const lastName = document.querySelector("#last").value;
   const email = document.querySelector("#email").value;
@@ -82,90 +77,142 @@ function validate() {
   //regular expression for email
   const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-  //Conditions
-  
-  //The First Name field has a minimum of 2 characters / is not empty.
-  if (firstName !== "" && firstName.length >= 2) {
-    inputFirst.classList.remove("form-invalid");
-    inputFirst.classList.add("form-valid");
-    checkFirst.classList.add("show-first");
-    invalidFirst.innerHTML = "";
-    //the last name field has a minimum of 2 characters / is not empty.
-    if (lastName !== "" && lastName.length >= 2) {
-      inputLast.classList.remove("form-invalid");
-      inputLast.classList.add("form-valid");
-      checkLast.classList.add("show-last");
-      invalidLast.innerHTML = "";
-      //The email address is valid.
-      if (email.match(emailReg)) {
-        inputEmail.classList.remove("form-invalid");
-        inputEmail.classList.add("form-valid");
-        checkEmail.classList.add("show-last");
-        invalidEmail.innerHTML = "";
-        // birthdate not empty
-        if (birthdate !== "") {
-          inputBirthdate.classList.remove("form-invalid");
-          inputBirthdate.classList.add("form-valid");
-          invalidBirthdate.innerHTML = "";
-          //For the number of contests, a numerical value is entered.
-          if (numberParticipation !== "" || numberParticipation == 0) {
-            //A radio button is selected.
-            if (
-              newYork.checked ||
-              sanFrancisco.checked ||
-              seattle.checked ||
-              chicago.checked ||
-              boston.checked ||
-              portland.checked
-            ) {
-              invalidOption.innerHTML ='';
-              //The general conditions box is checked, the other box is optional / can be left unchecked.
-              if (conditions == 'on' && conditionsChecked == true) {
-                invalidCondition.innerHTML = '';
-                
-                validatedForm.innerHTML ='Merci ! Votre réservation a été reçue.';
-                setTimeout(function(){
-                  console.log("Hello World");
-              }, 10000);
-                return true;
-              } else {
-                invalidCondition.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions.";
-                return false;
-              }
 
-            } else {
-              invalidOption.innerHTML = "Vous devez choisir une option.";
-              return false;
-            }
-          }
-        } else {
-          inputBirthdate.classList.remove("form-valid");
-          inputBirthdate.classList.add("form-invalid");
-          checkBirthdate.classList.remove("show-last");
-          invalidBirthdate.innerHTML = "Vous devez entrer votre date de naissance.";
-          return false;
-        }
-      } else {
-        inputEmail.classList.remove("form-valid");
-        inputEmail.classList.add("form-invalid");
-        checkEmail.classList.remove("show-last");
-        invalidEmail.innerHTML = "votre email n'est pas valide";
-        return false;
-      }
-    } else {
-      inputLast.classList.remove("form-valid");
-      inputLast.classList.add("form-invalid");
-      checkLast.classList.remove("show-last");
-      invalidLast.innerHTML =
-        "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
-      return false;
-    }
-  } else {
-    inputFirst.classList.remove("form-valid");
+  if(firstName == '' || firstName.length < 2) {
     inputFirst.classList.add("form-invalid");
-    checkFirst.classList.remove("show-first");
     invalidFirst.innerHTML =
       "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
+      
+    
+  }
+  if(lastName == "" || lastName.length < 2) {
+    inputLast.classList.add("form-invalid");
+    invalidLast.innerHTML =
+        "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+        
+    
+  }
+  console.log(email.match(emailReg));
+  if(String(email).match(emailReg) == null) {
+    inputEmail.classList.add("form-invalid");
+    invalidEmail.innerHTML = "votre email n'est pas valide";
+    
+  }
+  if(birthdate == ""){
+    inputBirthdate.classList.add("form-invalid");
+    invalidBirthdate.innerHTML = "Vous devez entrer votre date de naissance.";
+    
+  }
+  
+  if(newYork.checked = false ,
+    sanFrancisco.checked = false ,
+    seattle.checked = false ,
+    chicago.checked = false ,
+    boston.checked = false ,
+    portland.checked = false) {
+    invalidOption.innerHTML = "Vous devez choisir une option.";
     return false;
   }
+  //The general conditions box is checked, the other box is optional / can be left unchecked.
+  // if (conditions == 'on' && conditionsChecked == true) {
+  //     invalidCondition.innerHTML = '';
+      
+  //     validatedForm.innerHTML ='Merci ! Votre réservation a été reçue.';
+  //     setTimeout(function(){
+  //       console.log("Hello World");
+  //   }, 10000);
+  //   return true;
+  // } 
+  
 }
+
+
+// when form is submitted
+
+// function validate() {
+  
+
+//   //Conditions
+  
+//   //The First Name field has a minimum of 2 characters / is not empty.
+//   if (firstName !== "" && firstName.length >= 2) {
+    
+//     //the last name field has a minimum of 2 characters / is not empty.
+//     if (lastName !== "" && lastName.length >= 2) {
+      
+//       inputLast.classList.add("form-valid");
+//       checkLast.classList.add("show-last");
+//       invalidLast.innerHTML = "";
+//       //The email address is valid.
+//       if (email.match(emailReg)) {
+//         inputEmail.classList.remove("form-invalid");
+//         inputEmail.classList.add("form-valid");
+//         checkEmail.classList.add("show-last");
+//         invalidEmail.innerHTML = "";
+//         // birthdate not empty
+//         if (birthdate !== "") {
+//           inputBirthdate.classList.remove("form-invalid");
+//           inputBirthdate.classList.add("form-valid");
+//           invalidBirthdate.innerHTML = "";
+//           //For the number of contests, a numerical value is entered.
+//           if (numberParticipation !== "" || numberParticipation == 0) {
+//             //A radio button is selected.
+//             if (
+//               newYork.checked ||
+//               sanFrancisco.checked ||
+//               seattle.checked ||
+//               chicago.checked ||
+//               boston.checked ||
+//               portland.checked
+//             ) {
+//               invalidOption.innerHTML ='';
+//               //The general conditions box is checked, the other box is optional / can be left unchecked.
+//               if (conditions == 'on' && conditionsChecked == true) {
+//                 invalidCondition.innerHTML = '';
+                
+//                 validatedForm.innerHTML ='Merci ! Votre réservation a été reçue.';
+//                 setTimeout(function(){
+//                   console.log("Hello World");
+//               }, 10000);
+//                 return true;
+//               } else {
+//                 invalidCondition.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions.";
+//                 return false;
+//               }
+
+//             } else {
+//               invalidOption.innerHTML = "Vous devez choisir une option.";
+//               return false;
+//             }
+//           }
+//         } else {
+//           inputBirthdate.classList.remove("form-valid");
+//           inputBirthdate.classList.add("form-invalid");
+//           checkBirthdate.classList.remove("show-last");
+//           invalidBirthdate.innerHTML = "Vous devez entrer votre date de naissance.";
+//           return false;
+//         }
+//       } else {
+//         inputEmail.classList.remove("form-valid");
+//         inputEmail.classList.add("form-invalid");
+//         checkEmail.classList.remove("show-last");
+//         invalidEmail.innerHTML = "votre email n'est pas valide";
+//         return false;
+//       }
+//     } else {
+//       inputLast.classList.remove("form-valid");
+//       inputLast.classList.add("form-invalid");
+//       checkLast.classList.remove("show-last");
+//       invalidLast.innerHTML =
+//         "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+//       return false;
+//     }
+//   } else {
+//     inputFirst.classList.remove("form-valid");
+//     inputFirst.classList.add("form-invalid");
+//     checkFirst.classList.remove("show-first");
+//     invalidFirst.innerHTML =
+//       "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
+//     return false;
+//   }
+// }
