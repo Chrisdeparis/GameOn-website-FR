@@ -123,20 +123,25 @@ form.onsubmit = () => {
   }
   //The general conditions box is checked, the other box is optional / can be left unchecked.
  
-  if (conditions == 'on' && conditionsChecked == true) {
+  if (firstName.length >= 2 && lastName.length >= 2 && String(email).match(emailReg) == true && birthdate !== '' && location1.checked == true && location2.checked == true && location3.checked == true && location4.checked == true && location5.checked == true && location6.checked == true && conditionsChecked == true) {
     invalidCondition.innerHTML = '';
     
     validatedForm.innerHTML ='Merci ! Votre réservation a été reçue.';
     return true;
       
   } 
+  if(conditionsChecked == false){
+    invalidCondition.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions.";
+  } else {
+    invalidCondition.innerHTML ="";
+  }
   return false;
   
   
 }
 const conditions = document.querySelector("#checkbox1").value;
 const conditionsChecked = document.querySelector('#checkbox1').checked;
-console.log(conditions);
+console.log(location1.checked);
 
 // when form is submitted
 
