@@ -81,51 +81,62 @@ form.onsubmit = () => {
   if(firstName == '' || firstName.length < 2) {
     inputFirst.classList.add("form-invalid");
     invalidFirst.innerHTML =
-      "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
-      
-    
+      "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";    
+  } else {
+    inputFirst.classList.remove("form-invalid");
+    invalidFirst.innerHTML = "";
+    inputFirst.classList.add("form-valid");
+    checkFirst.classList.add("show-last");
   }
   if(lastName == "" || lastName.length < 2) {
     inputLast.classList.add("form-invalid");
     invalidLast.innerHTML =
         "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
-        
-    
+  } else {
+    inputLast.classList.remove("form-invalid");
+    invalidLast.innerHTML = "";
+    inputLast.classList.add("form-valid");
+    checkLast.classList.add("show-last");
   }
-  console.log(email.match(emailReg));
   if(String(email).match(emailReg) == null) {
     inputEmail.classList.add("form-invalid");
     invalidEmail.innerHTML = "votre email n'est pas valide";
-    
+  } else {
+    inputEmail.classList.remove("form-invalid");
+    inputEmail.classList.add("form-valid");
+    checkEmail.classList.add("show-last");
+    invalidEmail.innerHTML = "";
   }
   if(birthdate == ""){
     inputBirthdate.classList.add("form-invalid");
     invalidBirthdate.innerHTML = "Vous devez entrer votre date de naissance.";
-    
+  } else {
+    inputBirthdate.classList.remove("form-invalid");
+    inputBirthdate.classList.add("form-valid");
+    invalidBirthdate.innerHTML = "";
   }
   
-  if(newYork.checked = false ,
-    sanFrancisco.checked = false ,
-    seattle.checked = false ,
-    chicago.checked = false ,
-    boston.checked = false ,
-    portland.checked = false) {
+  if(newYork.checked == false && sanFrancisco.checked == false && seattle.checked == false && chicago.checked == false && boston.checked == false && portland.checked == false) {
     invalidOption.innerHTML = "Vous devez choisir une option.";
-    return false;
+  } else {
+    invalidOption.innerHTML = "";
   }
   //The general conditions box is checked, the other box is optional / can be left unchecked.
-  // if (conditions == 'on' && conditionsChecked == true) {
-  //     invalidCondition.innerHTML = '';
+ 
+  if (conditions == 'on' && conditionsChecked == true) {
+    invalidCondition.innerHTML = '';
+    
+    validatedForm.innerHTML ='Merci ! Votre réservation a été reçue.';
+    return true;
       
-  //     validatedForm.innerHTML ='Merci ! Votre réservation a été reçue.';
-  //     setTimeout(function(){
-  //       console.log("Hello World");
-  //   }, 10000);
-  //   return true;
-  // } 
+  } 
+  return false;
+  
   
 }
-
+const conditions = document.querySelector("#checkbox1").value;
+const conditionsChecked = document.querySelector('#checkbox1').checked;
+console.log(conditions);
 
 // when form is submitted
 
