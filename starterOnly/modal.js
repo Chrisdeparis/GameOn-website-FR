@@ -18,6 +18,7 @@ const submitBtn = document.querySelector(".btn-submit");
 
 // launch modal 
 modalBtn.onclick = () => {
+  console.log('ouvre modal')
   modalbg.style.display = "block";
 }
 mobileMenu.onclick = () => {
@@ -35,19 +36,28 @@ closeBtn.onclick = () => {
 
 
 //submit form
-// submitBtn.forEach((btn) => btn.addEventListener("click", validate));
+
 console.log(submitBtn);
 
 const form = document.querySelector('#form');
 console.log(form);
-const formValidation = document.querySelector('#formValidation');
 
-form.onsubmit = () => {
+submitBtn.onclick = (e) => {
+  e.preventDefault();
+  formValidation();
+}
+
+const formValidation = (e) => {
+  let isValid = true;
+
   const firstName = document.querySelector("#first").value;
   const lastName = document.querySelector("#last").value;
   const email = document.querySelector("#email").value;
   const birthdate = document.querySelector("#birthdate").value;
   const numberParticipation = document.querySelector("#quantity").value;
+  const conditions = document.querySelector("#checkbox1").value;
+  const conditionsChecked = document.querySelector('#checkbox1').checked;
+
   const newYork = document.querySelector("#location1");
   const sanFrancisco = document.querySelector("#location2");
   const seattle = document.querySelector("#location3");
@@ -55,8 +65,7 @@ form.onsubmit = () => {
   const boston = document.querySelector("#location5");
   const portland = document.querySelector("#location6");
 
-  const conditions = document.querySelector("#checkbox1").value;
-  const conditionsChecked = document.querySelector('#checkbox1').checked;
+  
 
   const inputFirst = document.querySelector("#first");
   const inputLast = document.querySelector("#last");
@@ -82,76 +91,86 @@ form.onsubmit = () => {
   //regular expression for email
   const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-
   if(firstName == '' || firstName.length < 2) {
     inputFirst.classList.add("form-invalid");
     invalidFirst.innerHTML =
-      "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";   
+      "Veuillez entrer 2 caractères ou plus pour le champ du prénom."; 
+    isValid = false;  
       
   } else {
     inputFirst.classList.remove("form-invalid");
     invalidFirst.innerHTML = "";
     inputFirst.classList.add("form-valid");
     checkFirst.classList.add("show-last");
+    
   }
   if(lastName == "" || lastName.length < 2) {
     inputLast.classList.add("form-invalid");
     invalidLast.innerHTML =
         "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
-        
+    isValid = false;    
   } else {
     inputLast.classList.remove("form-invalid");
     invalidLast.innerHTML = "";
     inputLast.classList.add("form-valid");
     checkLast.classList.add("show-last");
+    
   }
   if(String(email).match(emailReg) == null) {
     inputEmail.classList.add("form-invalid");
     invalidEmail.innerHTML = "votre email n'est pas valide";
+    isValid = false;
     
   } else {
     inputEmail.classList.remove("form-invalid");
     inputEmail.classList.add("form-valid");
     checkEmail.classList.add("show-last");
     invalidEmail.innerHTML = "";
+    
   }
   if(birthdate == ""){
     inputBirthdate.classList.add("form-invalid");
     invalidBirthdate.innerHTML = "Vous devez entrer votre date de naissance.";
+    isValid = false;
     
   } else {
     inputBirthdate.classList.remove("form-invalid");
     inputBirthdate.classList.add("form-valid");
     invalidBirthdate.innerHTML = "";
+    
   }
   
   if(newYork.checked == false && sanFrancisco.checked == false && seattle.checked == false && chicago.checked == false && boston.checked == false && portland.checked == false) {
     invalidOption.innerHTML = "Vous devez choisir une option.";
+    isValid = false;
     
   } else {
     invalidOption.innerHTML = "";
   }
-  //The general conditions box is checked, the other box is optional / can be left unchecked.
- 
-  
+    
   if(conditionsChecked == false){
     invalidCondition.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions.";
+    isValid = false;
     
   } else {
     invalidCondition.innerHTML ="";
-  }
-  return false;
-  if (firstName.length >= 2 && lastName.length >= 2 && String(email).match(emailReg) == true && birthdate !== '' && location1.checked == true || location2.checked == true ||  location3.checked == true || location4.checked == true || location5.checked == true || location6.checked == true && conditionsChecked == true) {
-    invalidCondition.innerHTML = '';
     
-    validatedForm.innerHTML ='Merci ! Votre réservation a été reçue.';
-    return true;
-  } 
-  
-  
+  }
+
+  if(!isValid) {
+    isValid = false;
+    validatedForm.innerHTML ='';
+  } else {
+    if (firstName.length >= 2 && lastName.length >= 2 && String(email).match(emailReg) == true && birthdate !== '' && location1.checked == true || location2.checked == true ||  location3.checked == true || location4.checked == true || location5.checked == true || location6.checked == true && conditionsChecked == true) {
+      invalidCondition.innerHTML = '';
+      
+      return validatedForm.innerHTML ='Merci ! Votre réservation a été reçue.';
+     
+      
+    } 
+  }
+  console.log(isValid);
+
 }
-const conditions = document.querySelector("#checkbox1").value;
-const conditionsChecked = document.querySelector('#checkbox1').checked;
-console.log(location6.checked);
 
 
