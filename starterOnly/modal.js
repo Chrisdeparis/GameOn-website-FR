@@ -87,6 +87,7 @@ const formValidation = (e) => {
   const checkEmail = document.querySelector("#checkEmail");
   const checkBirthdate = document.querySelector('#checkBirthdate');
   const checkOption = document.querySelector('#checkOption');
+  let children = document.querySelector("#form").children;
 
   //regular expression for email
   const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -164,12 +165,19 @@ const formValidation = (e) => {
     if (firstName.length >= 2 && lastName.length >= 2 && String(email).match(emailReg) == true && birthdate !== '' && location1.checked == true || location2.checked == true ||  location3.checked == true || location4.checked == true || location5.checked == true || location6.checked == true && conditionsChecked == true) {
       invalidCondition.innerHTML = '';
       
+      for(i=0; i<8; i++) {
+        children[i].classList.add('none');
+      }
+      
       return validatedForm.innerHTML ='Merci ! Votre réservation a été reçue.';
+      
+      
      
       
     } 
   }
   console.log(isValid);
+  console.log(children);
 
 }
 
