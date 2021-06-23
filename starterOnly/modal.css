@@ -63,6 +63,7 @@ img {
   background-color: #FE142F;
   color: #ffffff;
   border-radius: 15px;
+  text-decoration: underline;
 }
 
 .topnav .icon {
@@ -547,10 +548,11 @@ footer {
   box-shadow:inset 0 0 2px 2px #279E7A;
 }
 .validated-form {
-  margin: 100px 0;
+  margin: 10px 0;
   color: white;
   text-align: center; 
 }
+
 
 .valid-checkFirst, .valid-checkLast, .valid-checkEmail, .valid-checkBirthdate, .valid-checkOption{
   width: 40px;
@@ -572,6 +574,8 @@ footer {
 }
 .modal-body {
   min-height:80vh;
+  display: flex;
+  flex-direction: column;
 }
 .none {
   display: none;
