@@ -14,6 +14,7 @@ const mobileMenu = document.querySelector(".icon");
 const formData = document.querySelector(".formData");
 const closeBtn = document.querySelector(".close");
 const submitBtn = document.querySelector(".btn-submit");
+const mainNavBar = document.querySelector('.main-navbar');
 
 
 // launch modal 
@@ -22,6 +23,12 @@ modalBtn.onclick = () => {
   modalbg.style.display = "block";
 }
 mobileMenu.onclick = () => {
+  var x = document.querySelector(".main-navbar");
+  if (x.style.display === "none") {
+    x.style.display = "flex";
+  } else {
+    x.style.display = "none";
+  }
   
 }
 
