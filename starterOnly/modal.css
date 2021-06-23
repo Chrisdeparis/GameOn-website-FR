@@ -547,8 +547,9 @@ footer {
   box-shadow:inset 0 0 2px 2px #279E7A;
 }
 .validated-form {
-  margin:10px 0;
-  color:#279E7A;
+  margin: 100px 0;
+  color: white;
+  text-align: center; 
 }
 
 .valid-checkFirst, .valid-checkLast, .valid-checkEmail, .valid-checkBirthdate, .valid-checkOption{
@@ -568,6 +569,9 @@ footer {
 /* Larger screen */
 .hero-headline {
   font-size: 5.5rem;
+}
+.modal-body {
+  min-height:80vh;
 }
 .none {
   display: none;

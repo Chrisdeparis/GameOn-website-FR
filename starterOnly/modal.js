@@ -168,6 +168,7 @@ const formValidation = (e) => {
       for(i=0; i<8; i++) {
         children[i].classList.add('none');
       }
+      children[9].innerHTML = 'Close';
       
       return validatedForm.innerHTML ='Merci ! Votre réservation a été reçue.';
       
