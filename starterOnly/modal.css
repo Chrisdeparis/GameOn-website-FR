@@ -529,6 +529,7 @@ footer {
   }
 }
 /* Modifs CSS Christian */
+
 .valid-feedback {
   font-size:0.8rem;
   color:#279E7A;
@@ -552,7 +553,9 @@ footer {
   color: white;
   text-align: center; 
 }
-
+.validated-form.pos {
+  margin: 32vh 0;
+}
 
 .valid-checkFirst, .valid-checkLast, .valid-checkEmail, .valid-checkBirthdate, .valid-checkOption{
   width: 40px;
@@ -605,7 +608,7 @@ footer {
     background:white;
     color:red;
     margin-right:0;
-    margin-top: 1px;
+    margin-top: -10px;
   }
   .topnav {
     overflow: hidden;
