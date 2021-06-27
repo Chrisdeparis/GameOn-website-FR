@@ -9,7 +9,7 @@ function editNav() {
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelector(".btn-signup.modal-btn");
+const modalBtn = document.querySelectorAll(".btn-signup.modal-btn");
 const mobileMenu = document.querySelector(".icon");
 const formData = document.querySelector(".formData");
 const closeBtn = document.querySelector(".close");
@@ -17,10 +17,12 @@ const submitBtn = document.querySelector(".btn-submit");
 const mainNavBar = document.querySelector('.main-navbar');
 
 
-// launch modal 
-modalBtn.onclick = () => {
-  console.log('ouvre modal')
-  modalbg.style.display = "block";
+const j = modalBtn.length;
+let i;
+for(i=0; i<j; i++) {
+  modalBtn[i].onclick = () => {
+    modalbg.style.display = "block";
+  }
 }
 mobileMenu.onclick = () => {
   let x = document.querySelector(".main-navbar");
@@ -29,7 +31,6 @@ mobileMenu.onclick = () => {
   } else {
     x.style.display = "none";
   }
-  
 }
 
 //close modal event
@@ -45,7 +46,6 @@ closeBtn.onclick = () => {
 //submit form
 
 console.log(submitBtn);
-
 const form = document.querySelector('#form');
 console.log(form);
 
@@ -169,7 +169,7 @@ const formValidation = (e) => {
     isValid = false;
     validatedForm.innerHTML ='';
   } else {
-    if (firstName.length >= 2 && lastName.length >= 2 && String(email).match(emailReg) == true && birthdate !== '' && location1.checked == true || location2.checked == true ||  location3.checked == true || location4.checked == true || location5.checked == true || location6.checked == true && conditionsChecked == true) {
+    if (firstName.length >= 2 && lastName.length >= 2 && String(email).match(emailReg) == true && birthdate !== '' || location1.checked == true || location2.checked == true ||  location3.checked == true || location4.checked == true || location5.checked == true || location6.checked == true && conditionsChecked == true) {
       invalidCondition.innerHTML = '';
       
       for(i=0; i<children.length -2; i++) {
