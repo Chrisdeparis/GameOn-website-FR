@@ -612,7 +612,7 @@ footer {
   }
   .topnav {
     overflow: hidden;
-    margin: 7% 12px;
+    margin: 7% 20px;
 }
   div.topnav a.icon {
     display: block;
@@ -632,7 +632,11 @@ footer {
     line-height: 1em;
     font-weight: bold;
   }
-
+  .bground {
+    position:absolute;
+    top:80px;
+    height: auto;
+  }
 
   .hero-content {
     padding:20px 0;
