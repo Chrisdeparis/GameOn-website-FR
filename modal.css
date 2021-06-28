@@ -595,7 +595,7 @@ footer {
 /* mobile styles */
 @media only screen and (max-width:768px) {
   div.header-logo img.logo {
-    width:60%;
+    width: 45%;
   }
   main {
     margin: 1px 12px 15px;
@@ -613,6 +613,7 @@ footer {
   .topnav {
     overflow: hidden;
     margin: 7% 20px;
+    margin-bottom: 0;
 }
   div.topnav a.icon {
     display: block;
@@ -628,7 +629,7 @@ footer {
     width: 100%;
     margin: 0 auto;
     padding: 0px;
-    font-size: 4rem;
+    font-size: 2rem;
     line-height: 1em;
     font-weight: bold;
   }
